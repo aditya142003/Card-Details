@@ -1,0 +1,126 @@
+.container {
+  height: var(--dimesnion);
+  width: calc(var(--dimesnion) * 1.586);
+  perspective: 1000px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+.innerConatiner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.container:hover .innerConatiner {
+  transform: rotateY(180deg);
+}
+.front,
+.back {
+  height: var(--dimesnion);
+  width: calc(var(--dimesnion) * 1.586);
+  background-image: linear-gradient(45deg, #0045c7, #ff2c7d);
+  position: absolute;
+  border-radius: calc(var(--dimesnion) * 0.116);
+  backface-visibility: hidden;
+}
+.back {
+  transform: rotateY(180deg);
+}
+.map {
+  height: var(--dimesnion);
+  width: calc(var(--dimesnion) * 1.586);
+  opacity: 0.3;
+}
+.visa {
+  height: calc(var(--dimesnion) * 0.124);
+  width: auto;
+  position: absolute;
+  top: calc(var(--dimesnion) * 0.06);
+  left: calc(var(--dimesnion) * 1.1);
+}
+.chip {
+  height: calc(var(--dimesnion) * 0.232);
+  width: auto;
+  position: absolute;
+  top: calc(var(--dimesnion) * 0.036);
+  left: calc(var(--dimesnion) * 0.048);
+}
+.cardNum {
+  position: absolute;
+  top: calc(var(--dimesnion) * 0.43);
+  left: calc(var(--dimesnion) * 0.05);
+  height: 35px;
+  width: calc((var(--dimesnion) * 1.586) - 20px);
+  font-size: calc(var(--dimesnion) * 0.08);
+  border-radius: calc(var(--dimesnion) * 0.016);
+  font-weight: 700;
+  color: white;
+  justify-content: space-around;
+  display: flex;
+}
+.cardNum:focus {
+  border: solid rgba(255, 255, 255, 0.664) 3px;
+}
+.cardNumFChild {
+  display: flex;
+}
+.bottom {
+  position: absolute;
+  width: calc((var(--dimesnion) * 1.586) - var(--dimesnion) * 0.19);
+  top: calc(var(--dimesnion) * 0.74);
+  margin-left: calc(var(--dimesnion) * 0.1);
+  margin-right: calc(var(--dimesnion) * 0.1);
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: white;
+}
+.cardName :nth-child(1) {
+  font-weight: 500;
+  opacity: 0.7;
+  font-size: calc(var(--dimesnion) * 0.08);
+}
+.cardName :nth-child(2) {
+  font-weight: 700;
+  font-size: calc(var(--dimesnion) * 0.066);
+  width: auto;
+}
+.cardDate :nth-child(1) {
+  font-weight: 500;
+  opacity: 0.7;
+  font-size: calc(var(--dimesnion) * 0.08);
+}
+.cardDate :nth-child(2) {
+  font-weight: 700;
+  font-size: calc(var(--dimesnion) * 0.066);
+  width: auto;
+}
+.cvv {
+  position: absolute;
+  top: calc(var(--dimesnion) * 0.43);
+  left: calc(var(--dimesnion) * 0.04);
+  height: calc(var(--dimesnion) * 0.15);
+  width: calc((var(--dimesnion) * 1.586) - var(--dimesnion) * 0.1);
+  background-color: white;
+}
+.blackStrip {
+  position: absolute;
+  top: calc(var(--dimesnion) * 0.13);
+  left: calc(var(--dimesnion) * 0.001);
+  height: calc(var(--dimesnion) * 0.15);
+  width: calc((var(--dimesnion) * 1.586));
+  background-color: black;
+}
+.cvvWord {
+  position: absolute;
+  top: calc(var(--dimesnion) * 0.33);
+  left: calc(var(--dimesnion) * 1.4);
+  color: white;
+  font-size: calc(var(--dimesnion) * 0.066);
+}
+.visaBack {
+  height: calc(var(--dimesnion) * 0.08);
+  width: auto;
+  position: absolute;
+  top: calc(var(--dimesnion) * 0.83);
+  left: calc(var(--dimesnion) * 1.25);
+}
