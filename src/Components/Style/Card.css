@@ -2,16 +2,11 @@
   height: var(--dimesnion);
   width: calc(var(--dimesnion) * 1.586);
   perspective: 1000px;
-  position: absolute;
-  left: 20px;
-  top: 20px;
+  /* position: absolute; */
 }
 .innerConatiner {
   transition: transform 0.6s;
   transform-style: preserve-3d;
-}
-.container:hover .innerConatiner {
-  transform: rotateY(180deg);
 }
 .front,
 .back {
@@ -56,12 +51,14 @@
   color: white;
   justify-content: space-around;
   display: flex;
+  border: white 0px solid;
 }
 .cardNum:focus {
   border: solid rgba(255, 255, 255, 0.664) 3px;
 }
-.cardNumFChild {
+.cardNumChild {
   display: flex;
+  height: fit-content;
 }
 .bottom {
   position: absolute;
@@ -77,22 +74,22 @@
 .cardName :nth-child(1) {
   font-weight: 500;
   opacity: 0.7;
-  font-size: calc(var(--dimesnion) * 0.08);
+  font-size: calc(var(--dimesnion) * 0.066);
 }
 .cardName :nth-child(2) {
   font-weight: 700;
-  font-size: calc(var(--dimesnion) * 0.066);
+  font-size: calc(var(--dimesnion) * 0.08);
   width: auto;
 }
 .cardDate :nth-child(1) {
   font-weight: 500;
   opacity: 0.7;
-  font-size: calc(var(--dimesnion) * 0.08);
+  font-size: calc(var(--dimesnion) * 0.066);
 }
 .cardDate :nth-child(2) {
   font-weight: 700;
-  font-size: calc(var(--dimesnion) * 0.066);
   width: auto;
+  font-size: calc(var(--dimesnion) * 0.08);
 }
 .cvv {
   position: absolute;
@@ -123,4 +120,10 @@
   position: absolute;
   top: calc(var(--dimesnion) * 0.83);
   left: calc(var(--dimesnion) * 1.25);
+}
+.cardFullName {
+  border: white 0px solid;
+}
+.expiryDate {
+  border: white 0px solid;
 }
