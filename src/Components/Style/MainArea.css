@@ -1,1 +1,51 @@
-
+.mainContainer {
+  border: black 2px solid;
+  border-radius: 10px;
+  width: 28vw;
+  height: 60vh;
+  margin: auto;
+  position: relative;
+  top: 20vh;
+  background-color: rgb(255, 255, 255);
+}
+.mainContainer > form {
+  position: relative;
+  bottom: 40px;
+}
+.cardContainer {
+  width: calc(200px * 1.586);
+  margin: auto;
+  position: relative;
+  bottom: 100px;
+  /* box-shadow: rgba(0,0,0,0.8) 0px 10px; */
+  filter: drop-shadow(10px 12px 10px rgba(0, 0, 0, 0.7));
+}
+.cardNumberContainer,
+.holderContainer {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+}
+.cardNumberContainer > input,
+.holderContainer > input {
+  width: 100%;
+  height: 3vh;
+}
+.secondDiv {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
+  padding: 10px;
+}
+.secondDiv > div > button {
+  width: 10vw;
+  background-color: white;
+  height: 3.6vh;
+  border: 0.5px rgba(0, 0, 0, 0.553) solid;
+}
+.secondDiv > div > input {
+  width: 10vw;
+  /* background-color: white; */
+  height: 3vh;
+}

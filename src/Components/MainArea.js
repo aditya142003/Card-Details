@@ -24,12 +24,22 @@ function MainArea() {
 
   const handleClick = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setIsOpen(!isOpen);
+    if (expiryDate.focus) {
+      setExpiryDate({ ...expiryDate, focus: false });
+    } else {
+      setExpiryDate({ ...expiryDate, focus: true });
+    }
   };
+  document.addEventListener("click", (e) => {
+    setIsOpen(false);
+    setExpiryDate({ ...expiryDate, focus: false });
+  });
 
   return (
-    <div>
-      <div>
+    <div className="mainContainer">
+      <div className="cardContainer">
         <Card
           dimension="200px"
           cardNumber={JSON.stringify(cardNumber)}
@@ -40,8 +50,8 @@ function MainArea() {
           dateFocus={expiryDate.focus}
         />
       </div>
-      <div>
-        <form>
+      <form>
+        <div className="cardNumberContainer">
           <div>Card Number</div>
           <input
             type="number"
@@ -54,7 +64,10 @@ function MainArea() {
             onChange={(e) => {
               setCardnumber({ ...cardNumber, value: e.target.value });
             }}
+            placeholder="Number"
           ></input>
+        </div>
+        <div className="cardNumberContainer">
           <div>Holder Name</div>
           <input
             type="text"
@@ -68,47 +81,50 @@ function MainArea() {
               setholderName({ ...holderName, value: e.target.value });
             }}
             id="holderName"
+            placeholder="Name"
           ></input>
-          <div>Expiry Date</div>
-          <button className="example-custom-input" onClick={handleClick}>
-            {(expiryDate.value.getMonth() + 1) / 10 >= 1
-              ? expiryDate.value.getMonth() + 1
-              : "0" + (expiryDate.value.getMonth() + 1)}
-            /{expiryDate.value.getFullYear()}
-          </button>
-          {isOpen && (
-            <DatePicker
-              minDate={new Date()}
-              showMonthYearPicker
-              onFocus={() => {
-                setExpiryDate({ ...expiryDate, focus: true });
+        </div>
+        <div className="secondDiv">
+          <div>
+            <div>Expiry Date</div>
+            <button className="example-custom-input" onClick={handleClick}>
+              {(expiryDate.value.getMonth() + 1) / 10 >= 1
+                ? expiryDate.value.getMonth() + 1
+                : "0" + (expiryDate.value.getMonth() + 1)}
+              /{expiryDate.value.getFullYear()}
+            </button>
+            {isOpen && (
+              <DatePicker
+                minDate={new Date()}
+                showMonthYearPicker
+                showTwoColumnMonthYearPicker
+                shouldCloseOnSelect={true}
+                onChange={(date) => {
+                  setExpiryDate({ ...expiryDate, value: date });
+                }}
+                inline
+              />
+            )}
+          </div>
+          <div>
+            <div>CVV</div>
+            <input
+              type="number"
+              onFocus={(e) => {
+                setcvv({ ...cvv, focus: true });
               }}
-              onBlur={() => {
-                setExpiryDate({ ...expiryDate, focus: false });
+              onBlur={(e) => {
+                setcvv({ ...cvv, focus: false });
               }}
-              onChange={(date) => {
-                setExpiryDate({ ...expiryDate, value: date });
+              onChange={(e) => {
+                setcvv({ ...cvv, value: e.target.value });
               }}
-              inline
-            />
-          )}
-
-          <div>CVV</div>
-          <input
-            type="text"
-            onFocus={(e) => {
-              setcvv({ ...cvv, focus: true });
-            }}
-            onBlur={(e) => {
-              setcvv({ ...cvv, focus: false });
-            }}
-            onChange={(e) => {
-              setcvv({ ...cvv, value: e.target.value });
-            }}
-            id="cvv"
-          ></input>
-        </form>
-      </div>
+              placeholder="Number"
+              id="cvv"
+            ></input>
+          </div>
+        </div>
+      </form>
     </div>
   );
 }

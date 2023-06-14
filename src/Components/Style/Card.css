@@ -43,9 +43,9 @@
   position: absolute;
   top: calc(var(--dimesnion) * 0.43);
   left: calc(var(--dimesnion) * 0.05);
-  height: 35px;
+  height: 29px;
   width: calc((var(--dimesnion) * 1.586) - 20px);
-  font-size: calc(var(--dimesnion) * 0.08);
+  font-size: calc(var(--dimesnion) * 0.09);
   border-radius: calc(var(--dimesnion) * 0.016);
   font-weight: 700;
   color: white;
@@ -63,7 +63,7 @@
 .bottom {
   position: absolute;
   width: calc((var(--dimesnion) * 1.586) - var(--dimesnion) * 0.19);
-  top: calc(var(--dimesnion) * 0.74);
+  top: calc(var(--dimesnion) * 0.7);
   margin-left: calc(var(--dimesnion) * 0.1);
   margin-right: calc(var(--dimesnion) * 0.1);
   display: flex;
@@ -75,21 +75,25 @@
   font-weight: 500;
   opacity: 0.7;
   font-size: calc(var(--dimesnion) * 0.066);
+  margin: 2px;
 }
 .cardName :nth-child(2) {
   font-weight: 700;
-  font-size: calc(var(--dimesnion) * 0.08);
+  font-size: calc(var(--dimesnion) * 0.066);
   width: auto;
+  padding: 3px;
 }
 .cardDate :nth-child(1) {
   font-weight: 500;
   opacity: 0.7;
   font-size: calc(var(--dimesnion) * 0.066);
+  margin: 2px;
 }
 .cardDate :nth-child(2) {
   font-weight: 700;
   width: auto;
-  font-size: calc(var(--dimesnion) * 0.08);
+  font-size: calc(var(--dimesnion) * 0.066);
+  padding: 3px;
 }
 .cvv {
   position: absolute;

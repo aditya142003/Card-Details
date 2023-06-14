@@ -14,6 +14,7 @@ function Card(props) {
   const [expiryMon, setexpiryMon] = useState("MM");
   const [expiryYear, setexpiryYear] = useState("YYYY");
   const star = "****";
+  const hash = "####";
 
   document.documentElement.style.setProperty("--dimesnion", props.dimension);
 
@@ -30,20 +31,26 @@ function Card(props) {
     }
     var num = cardNumber.value.length;
     var str = cardNumber.value;
-    if (num <= 4) {
-      var temp = str + first.slice(num, 4);
-      setfirst(temp);
-    } else if (num > 4 && num <= 8) {
-      var temp = star.slice(0, num - 4) + second.slice(num - 4, 4);
-      setsecond(temp);
-    } else if (num > 8 && num <= 12) {
-      var temp = star.slice(0, num - 8) + third.slice(num - 8, 4);
-      setthird(temp);
-    } else if (num > 12 && num <= 16) {
-      var temp = str.slice(12, num) + forth.slice(num - 12, 4);
-      setforth(temp);
+    if (num != 0) {
+      if (num <= 4) {
+        var temp = str + hash.slice(num, 4);
+        setfirst(temp);
+        setsecond(hash);
+      } else if (num > 4 && num <= 8) {
+        var temp = star.slice(0, num - 4) + hash.slice(num - 4, 4);
+        setsecond(temp);
+        setthird(hash);
+      } else if (num > 8 && num <= 12) {
+        var temp = star.slice(0, num - 8) + hash.slice(num - 8, 4);
+        setthird(temp);
+        setforth(hash);
+      } else if (num > 12 && num <= 16) {
+        var temp = str.slice(12, num) + hash.slice(num - 12, 4);
+        setforth(temp);
+      }
+    } else {
+      setfirst(hash);
     }
-
     if (holderName.focus == true) {
       document.getElementById("cardFullName").style.border = "white 3px solid";
     } else {
@@ -54,7 +61,6 @@ function Card(props) {
     } else {
       setfullname("FULL NAME");
     }
-
     if (props.dateFocus == true) {
       document.getElementById("expiryDate").style.border = "white 3px solid";
     } else {
@@ -77,7 +83,7 @@ function Card(props) {
     }
     var cvvlength = cvv.value.length;
     if (cvv.value.length != 0) {
-      var temp = cvv.value + cvvs.slice(cvvlength, 4);
+      var temp = cvv.value + hash.slice(cvvlength, 4);
       setcvvs(temp);
     } else {
       setcvvs("####");
